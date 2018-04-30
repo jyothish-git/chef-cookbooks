@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <title>Welcome Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+
+  <script src="/static/jscript.js"></script>
+
+  <!-- Navigation Bar -->
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#letmenavigate">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">LetMeSolve</a>
+      </div>
+      <div class="collapse navbar-collapse" id="letmenavigate">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Services <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">service 1</a></li>
+              <li><a href="#">service 2</a></li>
+              <li><a href="#">service 3</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+        <!-- <button class="btn btn-danger navbar-btn">Offers</button> -->
+
+        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Offers</button>
+
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"><span class="caret"></span></a>
+
+            <ul class="dropdown-menu">
+              <li><a href="#">My Profile</a></li>
+              <li><a href="#">Settings</a></li>
+              <li><a href="/logout">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+  </nav>
+
+
+  <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Hello user..</h4>
+          </div>
+          <div class="modal-body">
+            <p>You dont have any offers at the moment.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+<!-- <div class="container">
+  <div class="navbar" align="right">
+<form action="/logout" >
+  <button class="btn btn-danger navbar-btn">Logout</button>
+  </form>
+</div>
+</div> -->
+<br /><br /><br />
+<div class="container">
+  <h2>Welcome {{username}}</h2>
+  <p>You can do these things.</p>
+
+  <ul class="nav nav-tabs">
+    <li style="color:red" class="active"><a data-toggle="tab" href="#home">Home</a></li>
+    <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+    <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" style="color:red" class="tab-pane fade in active">
+      <h3>HOME</h3>
+      <p>This is user Home</p>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>Menu 1</h3>
+      <p>Menu1 Options</p>
+      <form action="" method="post">
+        Service:<input type="text" name="email" placeholder="user@example.com" required/><br /><br />
+        Type:<input type="text" name="password" placeholder="password" required/><br /><br />
+        <input type="text" name="password" placeholder="password" required/><br /><br />
+        <input type="text" name="password" placeholder="password" required/><br /><br />
+        <input type="text" name="password" placeholder="password" required/><br /><br />
+        <input type="text" name="password" placeholder="password" required/><br /><br />
+        <button>Next</button>
+    </div>
+
+    <div id="menu2" class="tab-pane fade">
+      <h3>Menu 2</h3>
+      <div class="well">
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="menu2-menu1" data-toggle="dropdown">Tag
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="menu2-menu1">
+            {% for tags in Tags%}
+            <li role="presentation"><a role="menuitem" href="#">{{tags}}</a></li>
+            <li role="presentation" class="divider"></li>
+            {% endfor %}
+            <li role="presentation"><a role="menuitem" href="#">None</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" href="#">PROD-ABCD</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" href="#">STAG-ABCD</a></li>
+          </ul>
+        </div>
+<br /><br />
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="menu2-menu2" data-toggle="dropdown">Instance
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu2-menu2">
+              {% for instance in Instances%}
+              <li role="presentation"><a role="menuitem" href="#">{{instance}}</a></li>
+              <li role="presentation" class="divider"></li>
+              {% endfor %}
+              <li role="presentation"><a role="menuitem" href="#">i-123456789</a></li>
+              </ul>
+        </div>
+      </div>
+
+      <p>Menu2 Options</p>
+    </div>
+
+
+    <div id="menu3" class="tab-pane fade">
+      <h3>Menu 3</h3>
+      <p>Menu 3 Options</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="row">
+  <div class="col-sm-4">.col-sm-4</div>
+  <div class="col-sm-4">.col-sm-4</div>
+  <div class="col-sm-4">.col-sm-4</div>
+</div>
+</div>
+
+
+</body>
+</html>
