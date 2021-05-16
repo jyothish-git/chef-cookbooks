@@ -1,0 +1,28 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+  chef_license: accept-no-persist
+  product_name: chef
+  product_version: 14.10.9
+  environments_path: test/environments
+  client_rb:
+    environment: kitchen
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: centos-7.7
+
+suites:
+  - name: chef-veda-docker
+    run_list:
+      - recipe[veda-core::default]
+      - recipe[veda-docker::default]
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:
