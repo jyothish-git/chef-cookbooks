@@ -1,4 +1,4 @@
-# _docker.rb recipe test cases
+
 
 ['/var/lib/docker', '/etc/docker'].each do |dir|
         describe directory(dir) do
