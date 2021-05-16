@@ -18,10 +18,10 @@ platforms:
   - name: centos-7.7
 
 suites:
-  - name: chef-veda-docker
+  - name: my-kitchen-env
     run_list:
-      - recipe[veda-core::default]
-      - recipe[veda-docker::default]
+      - recipe[your-cookbook-1::default]  #format recipe[cookbook_name::recipe_name]
+      - recipe[your-cookbook-2::default]
     verifier:
       inspec_tests:
         - test/integration/default
